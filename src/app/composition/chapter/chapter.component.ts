@@ -20,7 +20,7 @@ export class ChapterComponent implements OnInit {
   chapter: Chapter;
   composition: any;
 
-  constructor(private compositionService: CompositionService, public route: ActivatedRoute,
+  constructor(public compositionService: CompositionService, public route: ActivatedRoute,
               private bottomSheet: MatBottomSheet, private router: Router, private token: TokenStorageService) {
   }
 
