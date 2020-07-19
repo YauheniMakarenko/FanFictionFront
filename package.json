@@ -3,11 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --output-path angularapp  --aot --prod"
+  },
+  "engines": {
+    "node": "v8.11.4",
+    "npm": "5.8.0"
   },
   "private": true,
   "dependencies": {
@@ -29,7 +34,8 @@
     "rxjs": "~6.6.0",
     "tinymce": "^5.4.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.3"
+    "zone.js": "~0.10.3",
+    "typescript": "~3.9.6"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.1",
