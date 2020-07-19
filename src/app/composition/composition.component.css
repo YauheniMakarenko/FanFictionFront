@@ -1,0 +1,117 @@
+.header{
+  color: #3F51B5;
+  font-weight: 500;
+  font-size: 16px;
+  margin-left: 24px;
+}
+
+.content{
+  margin-left: 24px;
+}
+
+.description{
+  margin-left: 36px;
+  margin-right: 36px;
+  text-align: justify;
+}
+
+.chapter-header{
+  color: #3F51B5;
+  font-weight: 500;
+}
+
+.comment-header{
+  color: #3F51B5;
+  font-weight: 500;
+  font-size: 24px;
+  margin-left: 24px;
+}
+
+.chapter-icon{
+  float: left;
+  font-size: 36px;
+}
+
+.chapter-name{
+  font-style: oblique;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.start-reading-button{
+  margin-top: 12px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.divider{
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.text{
+  font-size: 14px;
+  height: 100%;
+  width: 100%;
+}
+
+.comment-img-profile{
+  float: left;
+  width: 45px;
+  height: 45px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.author-name-onimage{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #f7f7f7;
+  font-size: 24px;
+}
+
+.comment-user-text{
+  margin-left: 57px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: justify;
+}
+
+.example-form {
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+textarea {
+  height: 100px;
+}
+
+.add-comment-btn {
+  float: right;
+  width: 45px;
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-comment-div-btn{
+  text-align: right;
+}
+
+.text-overflow {
+  display: block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.title{
+  text-align: center
+}

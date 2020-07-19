@@ -1,0 +1,44 @@
+<div id="wrap">
+  <div class="left">
+    <app-sidenav (readingMode)="readChapter()"></app-sidenav>
+  </div>
+
+  <div class="container" *ngIf="route.children.length === 0">
+    <form class="chapter-form">
+      <div>
+        <input class="loadImage" type="file" style="display:none" accept="image/*" #file
+               (change)="loadImage(file.files)">
+        <mat-icon class="hidden-icon" aria-hidden="false" (click)="callLoadImage()">add_photo_alternate</mat-icon>
+        <div class="img_container container-img">
+          <img [src]="this.compositionService.imgUrl" height="200" *ngIf="this.compositionService.imgUrl" id="img">
+          <div class="overlay" >
+            <mat-icon aria-hidden="false" (click)="openBottomSheet()" class="icon">edit</mat-icon>
+          </div>
+        </div>
+      </div>
+
+      <mat-form-field appearance="fill" class="full_width padding">
+        <mat-label>Chapter title</mat-label>
+        <input matInput name="chaptername" [(ngModel)]="form.chaptername" id="chapterName">
+      </mat-form-field>
+      <br>
+
+      <editor [init]="{selector: '#textAreaChapter',
+           plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+          'searchreplace visualblocks code fullscreen',
+          'insertdatetime media table paste code help wordcount'
+      ], toolbar:[
+          'undo redo | formatselect | bold italic backcolor |  alignleft aligncenter alignright alignjustify ' +
+           '| bullist numlist outdent indent | removeformat | help']}" hidden="hidden"></editor>
+      <mat-form-field class="full_width">
+        <textarea matInput name="text" id="textAreaChapter"></textarea>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button (click)="onSubmit()">Save Chapter</button>
+      </div>
+    </form>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+

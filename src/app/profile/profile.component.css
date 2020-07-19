@@ -1,0 +1,80 @@
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.settings-header-cell {
+  width: 80px;
+}
+
+.settings-icon {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.crop {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: auto;
+}
+
+.thChaptersAmount {
+  width: 150px;
+}
+
+.tdChaptersAmount {
+  text-align: center;
+}
+
+.thUsername {
+  width: 20%;
+}
+
+.add-composition-btn {
+  float: left;
+  width: 45px;
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  margin-left: 12px;
+}
+
+.allComposition {
+  font-family: Roboto Mono, monospace;
+  text-align: center;
+  font-size: 32px;
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.profile{
+  text-align: center;
+}
+
+.profile-name {
+  font-family: Roboto Mono, monospace;
+  font-size: 60px;
+  cursor: pointer;
+  justify-content: center;
+  display: flex;
+}
+
+

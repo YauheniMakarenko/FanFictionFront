@@ -1,0 +1,92 @@
+<div class="container" *ngIf="composition && activatedRoute.children.length === 0">
+  <header class="jumbotron">
+    <h3 class="text-overflow title">{{composition.title}}</h3>
+  </header>
+
+  <div>
+    <span class="header">Author: </span>
+    <span style="font-style: oblique">{{composition.author.username}}</span>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div>
+    <span class="header">Genres: </span>
+    <span *ngFor="let i = index; let genres of composition.genres" style="font-style: oblique">
+      {{genres.genrename}}<span *ngIf="(i===composition.genres.length-1) else comma">.</span>
+      <ng-template #comma>,</ng-template>
+          </span>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div><span class="header">Description:</span>
+    <p class="description text-overflow">{{composition.description}}</p>
+  </div>
+  <mat-divider></mat-divider>
+
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="chapter-header">
+        Chapters:
+      </mat-panel-title>
+      <mat-icon>expand_more</mat-icon>
+    </mat-expansion-panel-header>
+    <mat-list *ngFor="let chapter of chapters ">
+      <div>
+        <mat-icon class="chapter-icon">bookmark</mat-icon>
+        <mat-list-item class="chapter-name" (click)="readChapter(chapter)">{{chapter.chaptername}}</mat-list-item>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-expansion-panel>
+
+  <div class="start-reading-button">
+    <button mat-raised-button color="primary" (click)="readFirstChapter()">Begin Read from First Chapter</button>
+  </div>
+
+  <div class="comment-header">Comments on the composition:
+    <button mat-mini-fab color="primary" class="add-comment-btn" (click)="openCommentArea()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div id="add-comment" hidden>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Comment</mat-label>
+        <textarea id="textarea-comment" name="text" [(ngModel)]="addCommentText" matInput
+                  placeholder="Ex. I need help with..."></textarea>
+      </mat-form-field>
+    </form>
+    <div class="add-comment-div-btn">
+      <button mat-raised-button color="primary" style="margin-right: 12px" (click)="cancel()">Cancel</button>
+      <button mat-raised-button color="primary" (click)="addComment()">Leave a comment</button>
+    </div>
+    <mat-divider class="divider"></mat-divider>
+  </div>
+
+  <div>
+
+    <mat-list *ngFor="let comment of filterComments">
+      <div style="margin-top: 5px; margin-bottom: 5px;">
+
+        <button id="{{comment.id}}" disabled mat-mini-fab class="comment-img-profile" style="background-color: #3F51B5">
+          <div class="author-name-onimage">{{comment.commentUser.username.slice(0, 1).toUpperCase()}}</div>
+        </button>
+
+        <div>
+          <h5>{{comment.commentUser.username}}</h5>
+        </div>
+        <div class="comment-user-text">
+          <span class="text">{{comment.text}}</span>
+        </div>
+      </div>
+      <mat-divider class="divider"></mat-divider>
+    </mat-list>
+    <mat-paginator [length]="commentsAmount" [pageSize]="4" [pageSizeOptions]="[4, 8, 25, 100]"
+                   (page)="$event; onPaginateChange($event)">
+    </mat-paginator>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+

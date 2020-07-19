@@ -1,0 +1,40 @@
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.settings-header-cell {
+  width: 80px;
+}
+
+.settings-icon {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.crop {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: auto;
+}
+
+.thUsername {
+  width: 20%;
+}
+
+.allComposition {
+  font-family: Roboto Mono, monospace;
+  text-align: center;
+  font-size: 60px;
+  justify-content: center;
+  display: flex;
+}
+

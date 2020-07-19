@@ -1,0 +1,56 @@
+.allComposition-home {
+  font-family: Roboto Mono, monospace;
+  text-align: center;
+  font-size: 32px;
+}
+
+.text-overflow {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 10px;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+
+.publicationDate{
+  float: right;
+  padding-top: 25px;
+  font-size: 12px;
+  opacity: 0.7
+}
+
+#wrap{
+  width: auto;
+  position: relative;
+}
+
+.mat-stroked-btn{
+  background-color: #E9ECEF;
+  width: 15%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.composition-margin{
+  margin: 6px
+}
+
+.book-icon{
+
+  width: 10%;
+  font-size: 96px
+}
+
+.expand-more-icon{
+  float: right;
+  cursor: pointer
+}
+
+.home-title{
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}

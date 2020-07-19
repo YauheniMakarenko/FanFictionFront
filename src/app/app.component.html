@@ -1,0 +1,53 @@
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark toolbar">
+    <a href="/home" class="navbar-brand">Fan Fic</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <button mat-flat-button color="primary" routerLink="home" class="toolbar-option">Home</button>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <button mat-flat-button color="primary" routerLink="admin" class="toolbar-option">Admin Board</button>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <button mat-flat-button color="primary" routerLink="newcomposition" class="toolbar-option">New composition</button>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="search-li" [hidden]="true">
+        <input class="search-input" type="text" placeholder="Search" matInput [(ngModel)]="searchRequest"
+               [matAutocomplete]="auto" (ngModelChange)="search()">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let composition of allCompositions" (click)="readComposition(composition.id)">
+            {{composition.title}}
+          </mat-option>
+        </mat-autocomplete>
+      </li>
+
+      <li class="nav-item">
+        <button mat-button (click)="openSearchPanel()" class="search-icon">
+          <mat-icon>search</mat-icon>
+        </button>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <button mat-flat-button color="primary" routerLink="register" class="toolbar-option">Sign Up</button>
+      </li>
+      <li class="nav-item">
+        <button mat-flat-button color="primary" routerLink="login" class="toolbar-option">Login</button>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <button mat-flat-button color="primary" class="toolbar-option" routerLink="profile/{{userId}}">{{ username }}</button>
+      </li>
+      <li class="nav-item">
+        <button mat-flat-button color="primary" class="toolbar-option" (click)="logout()">LogOut</button>
+      </li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

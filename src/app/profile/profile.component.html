@@ -1,0 +1,72 @@
+<div class="container" *ngIf="currentUser">
+  <header class="jumbotron">
+
+    <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card"/>
+
+    <div class="profile">
+      <h3 class="profile-name">
+        <app-inplaceediting [data]='currentUser.username' (focusOut)='editUser($event)'></app-inplaceediting>
+      </h3>
+      <div class="mat-error">{{errorMessage}}</div>
+
+      <div>{{ currentUser.email }}</div>
+    </div>
+  </header>
+
+  <h1 class="allComposition">COMPOSITION</h1>
+
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="settings">
+        <th mat-header-cell *matHeaderCellDef class="settings-header-cell"></th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon class="settings-icon" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="readComposition(element.id)">Read</button>
+            <button mat-menu-item (click)="addChapter(element.id)">Add Chapter</button>
+            <button mat-menu-item (click)="editComposition(element.id)">Edit</button>
+            <button mat-menu-item (click)="deleteComposition(element.id)">Delete</button>
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <!-- CompositionName Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="thTitle"> Title</th>
+        <td mat-cell *matCellDef="let element"><p class="crop"> {{element.title}}</p></td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description</th>
+        <td mat-cell *matCellDef="let element"><p class="crop"> {{element.description}} </p></td>
+      </ng-container>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="chapterAmount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="thChaptersAmount"> Chapters Amount</th>
+        <td mat-cell *matCellDef="let element" class="tdChaptersAmount"> {{element.chapterAmount}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <button mat-mini-fab color="primary" class="add-composition-btn" (click)="addComposition()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+  </div>
+
+</div>

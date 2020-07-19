@@ -1,0 +1,27 @@
+.text{
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: justify;
+  height: 100%;
+  width: 100%;
+}
+.image{
+  margin-top: 2%;
+}
+
+.right{
+  float: right;
+}
+
+.goOgPage{
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+.chapter-number{
+  cursor: pointer;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+
