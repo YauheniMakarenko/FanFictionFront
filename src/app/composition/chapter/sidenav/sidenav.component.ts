@@ -21,7 +21,7 @@ export class SidenavComponent implements OnInit {
   chapters: Array<Chapter>;
 
 
-  constructor(private compositionService: CompositionService, private router: Router) {
+  constructor(public compositionService: CompositionService, private router: Router) {
   }
 
   mouseenter() {

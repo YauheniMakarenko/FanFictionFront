@@ -27,7 +27,7 @@ export class EditModeComponent implements OnInit {
     numberChapter: number
   };
 
-  constructor(private compositionService: CompositionService, private bottomSheet: MatBottomSheet,
+  constructor(public compositionService: CompositionService, private bottomSheet: MatBottomSheet,
               private chapterComponent: ChapterComponent, private router: Router, private token: TokenStorageService) {
   }
 
