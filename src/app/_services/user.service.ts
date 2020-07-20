@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-const API_URL = 'http://localhost:8080/api/test/';
+const API_URL = 'https://fanfictionfback.herokuapp.com/api/test/';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
