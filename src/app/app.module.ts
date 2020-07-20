@@ -45,8 +45,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatTableModule} from '@angular/material/table';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateModule, TranslateLoader, MissingTranslationHandler} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {MissingTranslationService} from './_services/missing-translation.service';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -103,6 +104,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
+      missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MissingTranslationService},
       useDefaultLang: false,
     })
   ],

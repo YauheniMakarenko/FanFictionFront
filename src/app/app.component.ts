@@ -1,10 +1,10 @@
-import {AfterViewInit, Component, DoCheck, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {TokenStorageService} from './_services/token-storage.service';
 import {Router} from '@angular/router';
-import {CompositionService} from "./_services/composition.service";
-import {MatAutocomplete} from "@angular/material/autocomplete";
-import {TranslateService} from "@ngx-translate/core";
-import {environment} from "../environments/environment";
+import {CompositionService} from './_services/composition.service';
+import {MatAutocomplete} from '@angular/material/autocomplete';
+import {TranslateService} from '@ngx-translate/core';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
