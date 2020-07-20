@@ -13,8 +13,9 @@
     </div>
 
     <mat-form-field appearance="fill" class="full_width padding">
-      <mat-label>Chapter title</mat-label>
-      <input matInput name="chaptername" [(ngModel)]="title" id="chapterName">
+      <mat-label>{{"Chapter.Chapter title" | translate}}</mat-label>
+      <input matInput name="chaptername" [(ngModel)]="title" id="chapterName"
+             placeholder="{{'Chapter.Chapter title' | translate}}">
     </mat-form-field>
     <br>
 
@@ -23,7 +24,7 @@
     </mat-form-field>
 
     <div>
-      <button mat-raised-button (click)="onSubmit()">Save Chapter</button>
+      <button mat-raised-button (click)="onSubmit()">{{"Chapter.Save Chapter" | translate}}</button>
     </div>
   </form>
 </div>

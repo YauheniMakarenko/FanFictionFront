@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { UserService } from '../_services/user.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {Router} from '@angular/router';
 import {CompositionService} from "../_services/composition.service";

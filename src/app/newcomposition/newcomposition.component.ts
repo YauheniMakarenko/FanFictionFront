@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CompositionService} from '../_services/composition.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TokenStorageService} from "../_services/token-storage.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-newcomposition',
@@ -17,10 +18,10 @@ export class NewcompositionComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   allGenre: string[];
-  value = 'Create Composition';
+  value = 'NewComposition.Create Composition';
 
   constructor(private token: TokenStorageService, private formBuilder: FormBuilder, private compositionService: CompositionService,
-              public route: ActivatedRoute, private router: Router) {
+              public route: ActivatedRoute, private router: Router, private translate: TranslateService) {
   }
 
 
@@ -40,7 +41,8 @@ export class NewcompositionComponent implements OnInit {
             this.form.description = compositionEdited.description;
             this.form.genres = arr;
             this.isLinear = true;
-            this.value = 'Save Changes';
+            this.value = 'NewComposition.Save Changes';
+
           }, () => this.router.navigateByUrl('home'));
         }
       });

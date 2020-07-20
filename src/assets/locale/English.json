@@ -1,0 +1,103 @@
+{
+  "English": "English",
+  "Russian": "Russian",
+  "Register": {
+    "Username": "Username",
+    "Email": "Email",
+    "Password": "Password",
+    "Username is required": "Username is required",
+    "Username must be at least 3 characters": "Username must be at least 3 characters",
+    "Username must be at most 20 characters": "Username must be at most 20 characters",
+    "Email is required": "Email is required",
+    "Email must be a valid email address": "Email must be a valid email address",
+    "Password is required": "Password is required",
+    "Password must be at least 6 characters": "Password must be at least 6 characters",
+    "Sign Up": "Sign Up",
+    "Signup failed!": "Signup failed!",
+    "Please, confirm email!": "Please, confirm email!"
+  },
+  "MainComponent": {
+    "Home": "Home",
+    "Admin Board": "Admin Board",
+    "New composition": "New composition",
+    "Sign Up": "Sign Up",
+    "Login": "Login",
+    "LogOut": "LogOut",
+    "Search": "Search"
+  },
+  "Login": {
+    "Username": "Username",
+    "Username is required!": "Username is required!",
+    "Password": "Password",
+    "Password is required": "Password is required",
+    "Password must be at least 6 characters": "Password must be at least 6 characters",
+    "Login": "Login",
+    "Login failed:": "Login failed:"
+  },
+  "Profile": {
+    "COMPOSITION": "COMPOSITION",
+    "Search": "Search",
+    "Read": "Read",
+    "Add Chapter": "Add Chapter",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "Title": "Title",
+    "Description": "Description",
+    "Chapters Amount": "Chapters Amount"
+  },
+  "NewComposition": {
+    "Enter the title of the composition": "Enter the title of the composition",
+    "Composition name": "Composition name",
+    "Next": "Next",
+    "Enter a description of the composition": "Enter a description of the composition",
+    "Description": "Description",
+    "Back": "Back",
+    "Choose genres": "Choose genres",
+    "Genre": "Genre",
+    "Done": "Done",
+    "You are now done": "You are now done.",
+    "Reset": "Reset",
+    "Create Composition": "Create Composition",
+    "Save Changes": "Save Changes"
+  },
+  "Home": {
+    "COMPOSITIONS": "COMPOSITIONS",
+    "Description": "Description",
+    "Genres": "Genres",
+    "Read": "Read",
+    "Publication Date": "Publication Date"
+  },
+  "Composition": {
+    "Author": "Author",
+    "Genres": "Genres",
+    "Description": "Description",
+    "Chapters": "Chapters",
+    "Begin Read from First Chapter": "Begin Read from First Chapter",
+    "Comments on the composition": "Comments on the composition",
+    "Comment": "Comment",
+    "Cancel": "Cancel",
+    "Leave a comment": "Leave a comment",
+    "Write a comment": "Write a comment"
+  },
+  "Chapter": {
+    "Chapter title": "Chapter title",
+    "Save Chapter": "Save Chapter"
+  },
+  "BottomSheet": {
+    "Edit image": "Edit image",
+    "Delete image": "Delete image"
+  },
+  "Admin": {
+    "ADMIN BOARD": "ADMIN BOARD",
+    "USERS": "USERS",
+    "Search": "Search",
+    "Sign in": "Sign in",
+    "Make User": "Make User",
+    "Make Admin": "Make Admin",
+    "Block User": "Block User",
+    "Delete": "Delete",
+    "Username": "Username",
+    "Email": "Email",
+    "Roles": "Roles"
+  }
+}

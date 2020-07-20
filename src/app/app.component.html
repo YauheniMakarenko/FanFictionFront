@@ -3,19 +3,25 @@
     <a href="/home" class="navbar-brand">Fan Fic</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <button mat-flat-button color="primary" routerLink="home" class="toolbar-option">Home</button>
+        <button mat-flat-button color="primary" routerLink="home" class="toolbar-option">
+          {{"MainComponent.Home" | translate}}</button>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
-        <button mat-flat-button color="primary" routerLink="admin" class="toolbar-option">Admin Board</button>
+        <button mat-flat-button color="primary" routerLink="admin" class="toolbar-option">
+          {{"MainComponent.Admin Board" | translate}}
+        </button>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn">
-        <button mat-flat-button color="primary" routerLink="newcomposition" class="toolbar-option">New composition</button>
+        <button mat-flat-button color="primary" routerLink="newcomposition" class="toolbar-option">
+          {{"MainComponent.New composition" | translate}}</button>
       </li>
     </ul>
 
+
     <ul class="navbar-nav">
       <li class="search-li" [hidden]="true">
-        <input class="search-input" type="text" placeholder="Search" matInput [(ngModel)]="searchRequest"
+        <input class="search-input" type="text" placeholder="{{'MainComponent.Search' | translate}}"
+               matInput [(ngModel)]="searchRequest"
                [matAutocomplete]="auto" (ngModelChange)="search()">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
           <mat-option *ngFor="let composition of allCompositions" (click)="readComposition(composition.id)">
@@ -31,21 +37,34 @@
       </li>
     </ul>
 
+
+      <button mat-flat-button color="primary" mat-button [matMenuTriggerFor]="menu" >
+        <mat-icon>language</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let lang of translate.getLangs()" (click)="setLanguage(lang)">{{lang|translate}}</button>
+      </mat-menu>
+
+
     <ul class="navbar-nav" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <button mat-flat-button color="primary" routerLink="register" class="toolbar-option">Sign Up</button>
+        <button mat-flat-button color="primary" routerLink="register" class="toolbar-option">
+          {{"MainComponent.Sign Up" | translate}}</button>
       </li>
       <li class="nav-item">
-        <button mat-flat-button color="primary" routerLink="login" class="toolbar-option">Login</button>
+        <button mat-flat-button color="primary" routerLink="login" class="toolbar-option">
+          {{"MainComponent.Login" | translate}}</button>
       </li>
     </ul>
 
     <ul class="navbar-nav" *ngIf="isLoggedIn">
       <li class="nav-item">
-        <button mat-flat-button color="primary" class="toolbar-option" routerLink="profile/{{userId}}">{{ username }}</button>
+        <button mat-flat-button color="primary" class="toolbar-option"
+                routerLink="profile/{{userId}}">{{ username }}</button>
       </li>
       <li class="nav-item">
-        <button mat-flat-button color="primary" class="toolbar-option" (click)="logout()">LogOut</button>
+        <button mat-flat-button color="primary" class="toolbar-option" (click)="logout()">
+          {{"MainComponent.LogOut" | translate}}</button>
       </li>
     </ul>
   </nav>

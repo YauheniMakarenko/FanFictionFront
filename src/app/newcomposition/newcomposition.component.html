@@ -3,59 +3,59 @@
 
     <mat-step  [stepControl]="firstFormGroup" >
       <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Enter the title of the composition</ng-template>
+        <ng-template matStepLabel>{{"NewComposition.Enter the title of the composition"| translate}}</ng-template>
         <mat-form-field class="full_width">
-          <mat-label>Composition name</mat-label>
-          <input matInput #title type="text" placeholder="Compositionname" formControlName="firstCtrl" required maxlength="100"
+          <mat-label>{{"NewComposition.Composition name"| translate}}</mat-label>
+          <input matInput #title type="text" placeholder="{{'NewComposition.Composition name' | translate}}" formControlName="firstCtrl" required maxlength="100"
                  [(ngModel)]="form.title">
           <mat-hint align="end">{{title.value.length}} / 100</mat-hint>
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext>{{"NewComposition.Next"| translate}}</button>
         </div>
       </form>
     </mat-step>
 
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Enter a description of the composition</ng-template>
+        <ng-template matStepLabel>{{"NewComposition.Enter a description of the composition"| translate}}</ng-template>
         <mat-form-field class="full_width">
-          <mat-label>Description</mat-label>
-          <textarea type="text" #message matInput formControlName="secondCtrl" placeholder="description" maxlength="510"
+          <mat-label>{{"NewComposition.Description"| translate}}</mat-label>
+          <textarea type="text" #message matInput formControlName="secondCtrl" placeholder="{{'NewComposition.Description' | translate}}" maxlength="510"
                     [(ngModel)]="form.description"
                     required></textarea>
           <mat-hint align="end">{{message.value.length}} / 510</mat-hint>
         </mat-form-field>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>{{"NewComposition.Back"| translate}}</button>
+          <button mat-button matStepperNext>{{"NewComposition.Next"| translate}}</button>
         </div>
       </form>
     </mat-step>
 
     <mat-step [stepControl]="thirdFormGroup">
       <form [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel>Choose genres</ng-template>
+        <ng-template matStepLabel>{{"NewComposition.Choose genres"| translate}}</ng-template>
         <mat-form-field class="full_width">
-          <mat-label>Genre</mat-label>
+          <mat-label>{{"NewComposition.Genre"| translate}}</mat-label>
           <mat-select multiple [(ngModel)]="form.genres" formControlName="thirdCtrl">
             <mat-option *ngFor="let topping of allGenre" [value]="topping">{{topping}}</mat-option>
           </mat-select>
         </mat-form-field>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>{{"NewComposition.Back"| translate}}</button>
+          <button mat-button matStepperNext>{{"NewComposition.Next"| translate}}</button>
         </div>
       </form>
     </mat-step>
 
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
+      <ng-template matStepLabel>{{"NewComposition.Done"| translate}}</ng-template>
+      <p>{{"NewComposition.You are now done"| translate}}</p>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-        <button mat-button (click)="onSubmit()" id="toChapters">{{value}}</button>
+        <button mat-button matStepperPrevious>{{"NewComposition.Back"| translate}}</button>
+        <button mat-button (click)="stepper.reset()">{{"NewComposition.Reset"| translate}}</button>
+        <button mat-button (click)="onSubmit()" id="toChapters">{{value|translate}}</button>
       </div>
     </mat-step>
   </mat-vertical-stepper>

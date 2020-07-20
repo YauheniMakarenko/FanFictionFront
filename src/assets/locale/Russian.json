@@ -1,0 +1,103 @@
+{
+  "English": "Английский",
+  "Russian": "Русский",
+  "Register": {
+    "Username": "Имя пользователя",
+    "Email": "Электронная почта",
+    "Password": "Пароль",
+    "Username is required": "Требуется ввести имя пользователя",
+    "Username must be at least 3 characters": "Имя пользователя должно быть не менее 3 символов",
+    "Username must be at most 20 characters": "Имя пользователя должно содержать не более 20 символов",
+    "Email is required": "Требуется ввести электронную почту",
+    "Email must be a valid email address": "Требуется ввести корректную электронную почту",
+    "Password is required": "Требуется ввести пароль",
+    "Password must be at least 6 characters": "Пароль должен содержать не менее 6 символов",
+    "Sign Up": "Зарегистрироваться",
+    "Signup failed!": "Регистрация не удалась",
+    "Please, confirm email!": "Пожалуйста, подтвердите электронную почту!"
+  },
+  "MainComponent": {
+    "Home": "Главная",
+    "Admin Board": "Админ панель",
+    "New composition": "Новое произведение",
+    "Sign Up": "Зарегистрироваться",
+    "Login": "Войти",
+    "LogOut": "Выйти",
+    "Search": "Поиск"
+  },
+  "Login": {
+    "Username": "Имя пользователя",
+    "Username is required!": "Требуется ввести имя пользователя!",
+    "Password": "Пароль",
+    "Password is required": "Требуется ввести пароль",
+    "Password must be at least 6 characters": "Пароль должен содержать не менее 6 символов",
+    "Login": "Войти",
+    "Login failed:": "Ошибка входа:"
+  },
+  "Profile": {
+    "COMPOSITION": "Произведения",
+    "Search": "Поиск",
+    "Read": "Читать",
+    "Add Chapter": "Добавить главу",
+    "Edit": "Изменить",
+    "Delete": "Удалить",
+    "Title": "Название",
+    "Description": "Описание",
+    "Chapters Amount": "Количество глав"
+  },
+  "NewComposition": {
+    "Enter the title of the composition": "Введите название произведения",
+    "Composition name": "Название произведения",
+    "Next": "Дальше",
+    "Enter a description of the composition": "Введите описание произведения",
+    "Description": "Описание",
+    "Back": "Назад",
+    "Choose genres": "Выберите жанры",
+    "Genre": "Жанры",
+    "Done": "Готово",
+    "You are now done": "Все заполнено.",
+    "Reset": "Сброс",
+    "Create Composition": "Создать произведение",
+    "Save Changes": "Сохранить изменения"
+  },
+  "Home": {
+    "COMPOSITIONS": "ПРОИЗВЕДЕНИЯ",
+    "Description": "Описание",
+    "Genres": "Жанры",
+    "Read": "Читать",
+    "Publication Date": "Дата публикации"
+  },
+  "Composition": {
+    "Author": "Автор",
+    "Genres": "Жанры",
+    "Description": "Описание",
+    "Chapters": "Главы",
+    "Begin Read from First Chapter": "Начать чтение с 1й главы",
+    "Comments on the composition": "Комментарий к произведению",
+    "Comment": "Комментарий",
+    "Cancel": "Назад",
+    "Leave a comment": "Оставить комментарий",
+    "Write a comment": "Напишите комментарий"
+  },
+  "Chapter": {
+    "Chapter title": "Название главы",
+    "Save Chapter": "Сохранить главу"
+  },
+  "BottomSheet": {
+    "Edit image": "Изменить изображение",
+    "Delete image": "Удалить изображение"
+  },
+  "Admin": {
+    "ADMIN BOARD": "АДМИН ПАНЕЛЬ",
+    "USERS": "ПОЛЬЗОВАТЕЛИ",
+    "Search": "Поиск",
+    "Sign in": "Войти",
+    "Make User": "Установить роль пользователя",
+    "Make Admin": "Установить роль админа",
+    "Block User": "Заблокировать пользователя",
+    "Delete": "Удалить",
+    "Username": "Пользователь",
+    "Email": "Электронная почта",
+    "Roles": "Роль"
+  }
+}

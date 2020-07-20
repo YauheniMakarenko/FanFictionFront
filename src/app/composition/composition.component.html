@@ -4,13 +4,13 @@
   </header>
 
   <div>
-    <span class="header">Author: </span>
+    <span class="header">{{"Composition.Author" | translate}}: </span>
     <span style="font-style: oblique">{{composition.author.username}}</span>
     <mat-divider></mat-divider>
   </div>
 
   <div>
-    <span class="header">Genres: </span>
+    <span class="header">{{"Composition.Genres" | translate}}: </span>
     <span *ngFor="let i = index; let genres of composition.genres" style="font-style: oblique">
       {{genres.genrename}}<span *ngIf="(i===composition.genres.length-1) else comma">.</span>
       <ng-template #comma>,</ng-template>
@@ -18,16 +18,14 @@
     <mat-divider></mat-divider>
   </div>
 
-  <div><span class="header">Description:</span>
+  <div><span class="header">{{"Composition.Description" | translate}}:</span>
     <p class="description text-overflow">{{composition.description}}</p>
   </div>
   <mat-divider></mat-divider>
 
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
-      <mat-panel-title class="chapter-header">
-        Chapters:
-      </mat-panel-title>
+      <mat-panel-title class="chapter-header">{{"Composition.Chapters" | translate}}:</mat-panel-title>
       <mat-icon>expand_more</mat-icon>
     </mat-expansion-panel-header>
     <mat-list *ngFor="let chapter of chapters ">
@@ -40,10 +38,11 @@
   </mat-expansion-panel>
 
   <div class="start-reading-button">
-    <button mat-raised-button color="primary" (click)="readFirstChapter()">Begin Read from First Chapter</button>
+    <button mat-raised-button color="primary" (click)="readFirstChapter()">
+      {{"Composition.Begin Read from First Chapter" | translate}}</button>
   </div>
 
-  <div class="comment-header">Comments on the composition:
+  <div class="comment-header">{{"Composition.Comments on the composition" | translate}}:
     <button mat-mini-fab color="primary" class="add-comment-btn" (click)="openCommentArea()">
       <mat-icon>add</mat-icon>
     </button>
@@ -52,9 +51,9 @@
   <div id="add-comment" hidden>
     <form class="example-form">
       <mat-form-field class="example-full-width">
-        <mat-label>Comment</mat-label>
+        <mat-label>{{"Composition.Comment" | translate}}</mat-label>
         <textarea id="textarea-comment" name="text" [(ngModel)]="addCommentText" matInput
-                  placeholder="Ex. I need help with..."></textarea>
+                  placeholder="{{'Composition.Write a comment' | translate}}"></textarea>
       </mat-form-field>
     </form>
     <div class="add-comment-div-btn">

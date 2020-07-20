@@ -3,6 +3,8 @@ import {TokenStorageService} from './_services/token-storage.service';
 import {Router} from '@angular/router';
 import {CompositionService} from "./_services/composition.service";
 import {MatAutocomplete} from "@angular/material/autocomplete";
+import {TranslateService} from "@ngx-translate/core";
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -23,11 +25,19 @@ export class AppComponent implements OnInit {
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(private tokenStorageService: TokenStorageService, private router: Router,
-              private compositionService: CompositionService) {
+              private compositionService: CompositionService, public translate: TranslateService) {
+    translate.addLangs(environment.locales);
+
   }
 
 
   ngOnInit() {
+    if (localStorage.getItem('language')) {
+      this.translate.use(localStorage.getItem('language'));
+    } else {
+      this.translate.use(environment.defaultLocale);
+    }
+
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
@@ -63,5 +73,10 @@ export class AppComponent implements OnInit {
 
   readComposition(compositionId: number) {
     this.router.navigateByUrl('/composition/' + compositionId);
+  }
+
+  setLanguage(language) {
+    this.translate.use(language);
+    localStorage.setItem('language', language);
   }
 }
