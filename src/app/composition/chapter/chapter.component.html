@@ -11,7 +11,7 @@
         <mat-icon class="hidden-icon" aria-hidden="false" (click)="callLoadImage()">add_photo_alternate</mat-icon>
         <div class="img_container container-img">
           <img [src]="this.compositionService.imgUrl" height="200" *ngIf="this.compositionService.imgUrl" id="img">
-          <div class="overlay" >
+          <div class="overlay">
             <mat-icon aria-hidden="false" (click)="openBottomSheet()" class="icon">edit</mat-icon>
           </div>
         </div>
@@ -22,7 +22,6 @@
         <input matInput name="chaptername" [(ngModel)]="form.chaptername" id="chapterName"
                placeholder="{{'Chapter.Chapter title' | translate}}">
       </mat-form-field>
-      <br>
 
       <editor [init]="{selector: '#textAreaChapter',
            plugins: [
@@ -32,11 +31,11 @@
       ], toolbar:[
           'undo redo | formatselect | bold italic backcolor |  alignleft aligncenter alignright alignjustify ' +
            '| bullist numlist outdent indent | removeformat | help']}" hidden="hidden"></editor>
-      <mat-form-field class="full_width">
-        <textarea matInput name="text" id="textAreaChapter"></textarea>
-      </mat-form-field>
+        <mat-form-field class="full_width">
+          <textarea matInput name="text" id="textAreaChapter"></textarea>
+        </mat-form-field>
       <div>
-        <button mat-raised-button (click)="onSubmit()">{{"Chapter.Save Chapter" | translate}}</button>
+        <button mat-raised-button class="theme" (click)="onSubmit()">{{"Chapter.Save Chapter" | translate}}</button>
       </div>
     </form>
   </div>

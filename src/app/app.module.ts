@@ -48,6 +48,7 @@ import {MatTableModule} from '@angular/material/table';
 import {TranslateModule, TranslateLoader, MissingTranslationHandler} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MissingTranslationService} from './_services/missing-translation.service';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -106,7 +107,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
       },
       missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MissingTranslationService},
       useDefaultLang: false,
-    })
+    }),
+    MatSlideToggleModule
   ],
   providers: [authInterceptorProviders],
   entryComponents: [MySheetComponent],

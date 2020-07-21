@@ -11,10 +11,11 @@
         </h3>
         <mat-icon class="expand-more-icon" (click)="showMore(composition.id)">expand_more</mat-icon>
         <div class="text-overflow" id="{{composition.id}}" (click)="showMore(composition.id)">
-          <strong>{{"Home.Description" | translate}}:</strong> {{composition.description}}</div>
+          <span class="header">{{"Home.Description" | translate}}:</span> {{composition.description}}
+        </div>
         <mat-divider></mat-divider>
         <span>
-          <strong>{{"Home.Genres" | translate}}: </strong>
+          <span class="header">{{"Home.Genres" | translate}}: </span>
           <span *ngFor="let i = index; let genres of composition.genres" style="font-style: oblique">
             {{genres.genrename}}<span *ngIf="(i===composition.genres.length-1) else comma">.</span>
             <ng-template #comma>,</ng-template>
@@ -22,13 +23,13 @@
         </span>
         <mat-divider></mat-divider>
         <div id="wrap">
-          <button mat-button class="mat-stroked-btn"
+          <button mat-button class="read-button"
                   (click)="readComposition(composition.id)">{{"Home.Read" | translate}}</button>
           <span class="publicationDate">
           {{"Home.Publication Date" | translate}}: {{composition.publicationDate.slice(0, 10)}}</span>
         </div>
       </fieldset>
-      <mat-divider style="background-color: #E9ECEF; border-width: 2px"></mat-divider>
+      <mat-divider class="compositions-divider"></mat-divider>
     </div>
   </mat-list>
   <mat-paginator [length]="compositionAmount" [pageSize]="4" [pageSizeOptions]="[4, 10, 25, 100]"

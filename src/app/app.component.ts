@@ -5,6 +5,8 @@ import {CompositionService} from './_services/composition.service';
 import {MatAutocomplete} from '@angular/material/autocomplete';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../environments/environment';
+import {ColorSchemeService} from "./_services/color-scheme.service";
+import {OverlayContainer} from "@angular/cdk/overlay";
 
 @Component({
   selector: 'app-root',
@@ -24,12 +26,20 @@ export class AppComponent implements OnInit {
   @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
+  darkMode: boolean;
+
+
   constructor(private tokenStorageService: TokenStorageService, private router: Router,
-              private compositionService: CompositionService, public translate: TranslateService) {
+              private compositionService: CompositionService, public translate: TranslateService,
+              private colorSchemeService: ColorSchemeService) {
     translate.addLangs(environment.locales);
 
-  }
+    this.colorSchemeService.load();
+    if (localStorage.getItem('prefers-color') === 'dark'){
+      this.darkMode = true;
+    }
 
+  }
 
   ngOnInit() {
     if (localStorage.getItem('language')) {
@@ -78,5 +88,13 @@ export class AppComponent implements OnInit {
   setLanguage(language) {
     this.translate.use(language);
     localStorage.setItem('language', language);
+  }
+
+  setTheme(darkMode: boolean) {
+    if (!darkMode){
+      this.colorSchemeService.update('dark');
+    }else{
+      this.colorSchemeService.update('light');
+    }
   }
 }

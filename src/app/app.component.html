@@ -37,13 +37,13 @@
       </li>
     </ul>
 
-
-      <button mat-flat-button color="primary" mat-button [matMenuTriggerFor]="menu" >
-        <mat-icon>language</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item *ngFor="let lang of translate.getLangs()" (click)="setLanguage(lang)">{{lang|translate}}</button>
-      </mat-menu>
+    <button mat-flat-button color="primary" mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>language</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let lang of translate.getLangs()"
+              (click)="setLanguage(lang)">{{lang|translate}}</button>
+    </mat-menu>
 
 
     <ul class="navbar-nav" *ngIf="!isLoggedIn">
@@ -67,6 +67,12 @@
           {{"MainComponent.LogOut" | translate}}</button>
       </li>
     </ul>
+
+    <mat-slide-toggle [(ngModel)]="darkMode" (click)="setTheme(darkMode)"></mat-slide-toggle>
+      <mat-icon *ngIf="darkMode">brightness_3</mat-icon>
+      <mat-icon *ngIf="!darkMode">wb_sunny</mat-icon>
   </nav>
+
   <router-outlet></router-outlet>
 </div>
+

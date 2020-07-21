@@ -23,9 +23,7 @@ export class ProfileComponent implements OnInit {
   currentUser: any;
   displayedColumns: string[] = ['settings', 'title', 'description', 'chapterAmount'];
   dataSource: MatTableDataSource<Composition>;
-  composition: any;
-  errorMessage = '';
-
+  errorMessage: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -56,25 +54,23 @@ export class ProfileComponent implements OnInit {
       this.router.navigateByUrl("/login");
     } else {
       this.currentUser = this.token.getUser();
-      this.compositionService.getCompositionsForCurrentUser().subscribe(
-        compositions => {
-          this.currentUser.compositions = compositions;
-          this.dataSource = new MatTableDataSource(this.currentUser.compositions);
-          this.dataSource.filterPredicate = (data: Composition, filter: string): boolean => {
-            return data.description.toLowerCase().includes(filter) || data.title.toLowerCase().includes(filter) ||
-              data.chapterAmount.toString().includes(filter);
-          };
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        });
+      this.compositionService.getCompositionsForCurrentUser().subscribe(compositions => {
+        this.currentUser.compositions = compositions;
+        this.dataSource = new MatTableDataSource(this.currentUser.compositions);
+        this.dataSource.filterPredicate = (data: Composition, filter: string): boolean => {
+          return data.title.toLowerCase().includes(filter)
+            || data.description.toLowerCase().includes(filter)
+            || data.chapterAmount.toString().includes(filter);
+        };
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
     }
-
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
