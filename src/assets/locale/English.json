@@ -100,5 +100,17 @@
     "Username": "Username",
     "Email": "Email",
     "Roles": "Roles"
-  }
+  },
+  "Cyberpunk": "Cyberpunk",
+  "Fantastic": "Fantastic",
+  "Legend": "Legend",
+  "Erotic": "Erotic",
+  "Detective": "Detective",
+  "Drama": "Drama",
+  "History": "History",
+  "Tragedy": "Tragedy",
+  "Epic": "Epic",
+  "Horror": "Horror",
+  "Thriller": "Thriller",
+  "Psychology": "Psychology"
 }

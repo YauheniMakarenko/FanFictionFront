@@ -39,7 +39,7 @@
         <mat-form-field class="full_width">
           <mat-label>{{"NewComposition.Genre"| translate}}</mat-label>
           <mat-select multiple [(ngModel)]="form.genres" formControlName="thirdCtrl">
-            <mat-option *ngFor="let topping of allGenre" [value]="topping">{{topping}}</mat-option>
+            <mat-option *ngFor="let topping of allGenre" [value]="topping">{{topping|translate}}</mat-option>
           </mat-select>
         </mat-form-field>
         <div>

@@ -18,7 +18,7 @@
   <div>
     <span class="header">{{"Composition.Genres" | translate}}: </span>
     <span *ngFor="let i = index; let genres of composition.genres" style="font-style: oblique">
-      {{genres.genrename}}<span *ngIf="(i===composition.genres.length-1) else comma">.</span>
+      {{genres.genrename|translate}}<span *ngIf="(i===composition.genres.length-1) else comma">.</span>
       <ng-template #comma>,</ng-template>
           </span>
     <mat-divider></mat-divider>
