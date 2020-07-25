@@ -101,16 +101,16 @@
     "Email": "Email",
     "Roles": "Roles"
   },
-  "Cyberpunk": "Cyberpunk",
-  "Fantastic": "Fantastic",
-  "Legend": "Legend",
-  "Erotic": "Erotic",
-  "Detective": "Detective",
-  "Drama": "Drama",
-  "History": "History",
-  "Tragedy": "Tragedy",
-  "Epic": "Epic",
-  "Horror": "Horror",
-  "Thriller": "Thriller",
-  "Psychology": "Psychology"
+  "Киберпанк": "Cyberpunk",
+  "Фантастика": "Fantastic",
+  "Легенда": "Legend",
+  "Эротика": "Erotic",
+  "Детектив": "Detective",
+  "Драма": "Drama",
+  "История": "History",
+  "Трагедия": "Tragedy",
+  "Эпопея": "Epic",
+  "Ужасы": "Horror",
+  "Триллер": "Thriller",
+  "Психология": "Psychology"
 }
