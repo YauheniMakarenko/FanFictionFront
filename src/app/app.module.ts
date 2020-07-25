@@ -49,6 +49,9 @@ import {TranslateModule, TranslateLoader, MissingTranslationHandler} from '@ngx-
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MissingTranslationService} from './_services/missing-translation.service';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { GoogleAuthComponent } from './google-auth/google-auth.component';
+import { VkAuthComponent } from './vk-auth/vk-auth.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -70,46 +73,49 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
     EditModeComponent,
     SafeHtmlPipe,
     InplaceeditingComponent,
-    CompositionComponent
+    CompositionComponent,
+    GoogleAuthComponent,
+    VkAuthComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatStepperModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    MatMenuModule,
-    DragDropModule,
-    MatButtonModule,
-    MatBottomSheetModule,
-    ScrollingModule,
-    EditorModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatExpansionModule,
-    MatChipsModule,
-    MatAutocompleteModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-      missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MissingTranslationService},
-      useDefaultLang: false,
-    }),
-    MatSlideToggleModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatStepperModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatMenuModule,
+        DragDropModule,
+        MatButtonModule,
+        MatBottomSheetModule,
+        ScrollingModule,
+        EditorModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatExpansionModule,
+        MatChipsModule,
+        MatAutocompleteModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient],
+            },
+            missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MissingTranslationService},
+            useDefaultLang: false,
+        }),
+        MatSlideToggleModule,
+        MatTooltipModule
+    ],
   providers: [authInterceptorProviders],
   entryComponents: [MySheetComponent],
   bootstrap: [AppComponent]

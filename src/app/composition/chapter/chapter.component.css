@@ -81,3 +81,10 @@ img {
   position: relative;
 }
 
+.edit-icon {
+  position: relative;
+  cursor: pointer;
+  left: 40%;
+  font-size: 200px;
+}
+

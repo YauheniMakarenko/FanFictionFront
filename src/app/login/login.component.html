@@ -1,6 +1,24 @@
 <div class="col-md-12">
   <div class="card card-container">
     <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card"/>
+
+
+    <div style="margin-bottom: 12px">
+      <button mat-flat-button color="primary"
+              style="width: 48%;background-color:#ef4339; margin-right: 2%;text-align: center"
+              onclick="parent.location='https://accounts.google.com/o/oauth2/auth?redirect_uri=https://fanfictionfront.herokuapp.com/google/auth&response_type=code&client_id=30011668004-ta3r286f4buks2ed9rsqbc8nhoo4qaum.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile'">
+        <img src="https://img.icons8.com/ios/50/000000/google-plus.png"
+             style="height: 30px;filter: invert();float: left;margin-top: 3px"/>
+        Google
+      </button>
+      <button mat-flat-button color="primary" style="width: 48%;background-color: #4a76a7; text-align: center"
+              onclick="parent.location='https://oauth.vk.com/authorize?client_id=7549235&display=popup&redirect_uri=https://fanfictionfront.herokuapp.com/vk/auth&scope=email&response_type=code'">
+        <img src="https://cdn.icon-icons.com/icons2/535/PNG/512/VK-Icon_icon-icons.com_52860.png"
+             style="height: 30px;float: left;margin-top: 3px"/>
+        VKontakte
+      </button>
+    </div>
+
     <form *ngIf="!isLoggedIn" name="form" #f="ngForm" novalidate>
       <div class="form-group">
         <mat-form-field class="full-width">
@@ -32,9 +50,6 @@
       <div class="form-group">
         <button mat-raised-button color="primary" class="btn btn-block"
                 (click)="f.form.valid && onSubmit()">{{"Login.Login" | translate}}</button>
-      </div>
-      <div align="center">
-        <a href="google.com">Войти через Google</a>
       </div>
       <div class="form-group">
         <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">

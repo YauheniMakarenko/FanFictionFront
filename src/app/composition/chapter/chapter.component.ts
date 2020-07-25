@@ -1,11 +1,10 @@
-import {Component, DoCheck, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Chapter, CompositionService} from '../../_services/composition.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SidenavComponent} from './sidenav/sidenav.component';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {MySheetComponent} from './edit-mode/my-sheet/my-sheet.component';
 import {TokenStorageService} from '../../_services/token-storage.service';
-import {inspect} from "util";
 
 declare var tinymce;
 

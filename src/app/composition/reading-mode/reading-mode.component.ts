@@ -2,7 +2,6 @@ import {AfterViewInit, Component, DoCheck, OnInit, Pipe, PipeTransform} from '@a
 import {Chapter, CompositionService} from '../../_services/composition.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
-import {CompositionComponent} from '../composition.component';
 import {TokenStorageService} from '../../_services/token-storage.service';
 
 
@@ -17,7 +16,7 @@ export class ReadingModeComponent implements OnInit, DoCheck, AfterViewInit {
   chapter: Chapter;
 
   constructor(public compositionService: CompositionService, private router: Router,
-              private storageService: TokenStorageService, private activatedRoute: ActivatedRoute) {
+              private storageService: TokenStorageService) {
   }
 
   ngOnInit() {
@@ -55,7 +54,7 @@ export class ReadingModeComponent implements OnInit, DoCheck, AfterViewInit {
 
   deleteChapter() {
     this.compositionService.deleteChapter(this.chapter).subscribe(() => {
-        window.location.reload();
+      this.router.navigateByUrl('composition/' + this.compositionService.compositionId);
       }
     );
   }

@@ -34,4 +34,13 @@ export class AuthService {
   activate(): Observable<any> {
     return this.http.get(AUTH_API + '/activate/{code}');
   }
+
+  authFromGoogle(googleCode: string): Observable<any>{
+    return this.http.get(AUTH_API + 'authgoogle/' + googleCode.slice(2));
+  }
+
+  authFromVk(vkCode: string): Observable<any> {
+    return this.http.get(AUTH_API + 'authvk/' + vkCode);
+  }
 }
+

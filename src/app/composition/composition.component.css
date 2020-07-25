@@ -81,11 +81,7 @@
   text-align: justify;
 }
 
-.example-form {
-  width: 100%;
-}
-
-.example-full-width {
+.formComment {
   width: 100%;
 }
 
@@ -114,4 +110,8 @@ textarea {
 
 .title{
   text-align: center
+}
+
+.tags{
+  margin-top: 12px;
 }

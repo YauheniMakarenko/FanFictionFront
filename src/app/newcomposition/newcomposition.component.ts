@@ -17,8 +17,10 @@ export class NewcompositionComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-  allGenre: string[];
+  allGenre = [];
   value = 'NewComposition.Create Composition';
+  genresObj: any[];
+
 
   constructor(private token: TokenStorageService, private formBuilder: FormBuilder, private compositionService: CompositionService,
               public route: ActivatedRoute, private router: Router, private translate: TranslateService) {
@@ -42,25 +44,35 @@ export class NewcompositionComponent implements OnInit {
             this.form.genres = arr;
             this.isLinear = true;
             this.value = 'NewComposition.Save Changes';
-
-          }, () => this.router.navigateByUrl('home'));
+          }, () =>
+            this.router.navigateByUrl('home'));
         }
       });
     }
-
     this.compositionService.getGenre().subscribe(
-      data => this.allGenre = data);
+      genres => {
+        this.genresObj = genres;
+        for (const genre of genres) {
+          this.allGenre.push(genre.genrename);
+        }
+      });
     this.firstFormGroup = this.formBuilder.group({firstCtrl: ['', Validators.required]});
     this.secondFormGroup = this.formBuilder.group({secondCtrl: ['', Validators.required]});
     this.thirdFormGroup = this.formBuilder.group({thirdCtrl: ['', Validators.required]});
   }
 
   onSubmit() {
-    this.compositionService.saveComposition(this.form).subscribe(data => {
-      this.compositionService.compositionId = data.id;
+    const genreEnd = [];
+    for (const genre of this.form.genres) {
+      genreEnd.push(this.genresObj.filter(genreobj => genreobj.genrename === genre)[0]);
+    }
+    this.form.genres = genreEnd;
+
+    this.compositionService.saveComposition(this.form).subscribe(compositionId => {
+      this.compositionService.compositionId = compositionId;
       this.form = {};
       this.compositionService.imgUrl = null;
-      this.router.navigateByUrl('composition/' + data.id + '/chapter');
+      this.router.navigateByUrl('composition/' + compositionId + '/chapter');
     });
   }
 }

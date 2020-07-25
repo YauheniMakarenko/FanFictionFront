@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {Router} from '@angular/router';
-import {CompositionService} from "../_services/composition.service";
+import {CompositionService} from '../_services/composition.service';
 
 @Component({
   selector: 'app-home',

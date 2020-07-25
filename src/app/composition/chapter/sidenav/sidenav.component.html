@@ -8,9 +8,9 @@
     </mat-icon>
   </mat-list-item>
   <div class="submenu" [ngClass]="{'expanded' : showSubmenu}">
-    <cdk-virtual-scroll-viewport itemSize="6" class="example-viewport">
+    <cdk-virtual-scroll-viewport itemSize="6" class="viewport">
       <div cdkDropList (cdkDropListDropped)="dropped($event)">
-        <div *ngFor="let item of chapters; let i = index" cdkDrag class="example-box">
+        <div *ngFor="let item of chapters; let i = index" cdkDrag class="box">
           <mat-list-item (click)="readChapter(item.id)" class="list">
             <span class="heading-number-chapter">{{i + 1}}</span>
             <span class="crop chaptername">&emsp;{{item.chaptername}}</span>

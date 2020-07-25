@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 
-const API_URL = 'https://fanfictionfback.herokuapp.com/api/test/';
+const API_URL = 'https://fanfictionfback.herokuapp.com/api/fanfic/';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -25,6 +25,7 @@ export class CompositionService {
   compositionId: number;
   chapter: Chapter;
   chapters: Array<Chapter>;
+  compositions: any[] = [];
 
   constructor(private http: HttpClient) {
   }
@@ -87,12 +88,11 @@ export class CompositionService {
     return this.http.get(API_URL + 'getCommentsByCompositionId/' + compositionId);
   }
 
-  addComment(text: string, composition): Observable<any> {
+  addComment(text: string, compositionDTO): Observable<any> {
     return this.http.post(API_URL + 'addcomment', {
-        text,
-        composition
-      }
-      , httpOptions);
+      text,
+      compositionDTO
+    }, httpOptions);
   }
 
   saveAllChapters(chapters: Chapter[]) {
@@ -107,6 +107,10 @@ export class CompositionService {
     return this.http.get(API_URL + 'search/' + searchRequest);
   }
 
+  exportPdf(compositionId: number): Observable<Blob> {
+    return this.http.get(API_URL + 'exportToPdf/' + compositionId, {responseType: 'blob'});
+  }
+
   public findChapter(chapterId) {
     return this.chapters.find(chapter => chapter.id === chapterId);
   }
@@ -117,7 +121,7 @@ export class CompositionService {
 
   deleteImage(className: string) {
     this.imgUrl = null;
-    if (this.chapter !== undefined){
+    if (this.chapter !== undefined) {
       this.chapter.imgUrl = null;
     }
     (document.getElementsByClassName(className)[0] as HTMLElement).hidden = false;

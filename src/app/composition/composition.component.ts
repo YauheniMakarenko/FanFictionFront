@@ -33,13 +33,13 @@ export class CompositionComponent implements OnInit {
   stompClient;
   compositionIds: any[] = [];
 
-  constructor(public activatedRoute: ActivatedRoute, private compositionService: CompositionService,
+  constructor(public activatedRoute: ActivatedRoute, public compositionService: CompositionService,
               private router: Router, private token: TokenStorageService) {
     this.initializeWebSocketConnection();
   }
 
   initializeWebSocketConnection() {
-    const serverUrl = 'https://fanfictionfback.herokuapp.com/api/test/socket';
+    const serverUrl = 'https://fanfictionfback.herokuapp.com/api/fanfic/socket';
     const ws = new SockJS(serverUrl);
     this.stompClient = Stomp.over(ws);
     this.stompClient.debug = null;
@@ -55,31 +55,28 @@ export class CompositionComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(data => {
-      if (data.compositionId !== this.compositionId) {
-        this.compositionService.getAllComposition().subscribe(compositions => {
-          for (const composition of compositions) {
-            this.compositionIds.push(composition.id);
-          }
-          if (this.compositionIds.indexOf(Number(data.compositionId)) === -1) {
-            this.router.navigateByUrl('home');
-          } else {
-            this.compositionId = data.compositionId;
-            this.compositionService.compositionId = data.compositionId;
-            this.ngOnInit();
-            this.compositionService.getComposition(data.compositionId).subscribe(composition =>
-              this.composition = composition);
-            this.compositionService.getChapters(data.compositionId).subscribe(chapters => this.chapters = chapters);
-          }
-        });
-      }
-      if (this.compositionIds.indexOf(Number(data.compositionId)) !== -1) {
-        this.compositionService.getCommentsByCompositionId(data.compositionId).subscribe(comments => {
-          this.comments = comments;
-          this.filterComments = this.comments.slice(0, 4);
-          this.commentsAmount = this.comments.length;
-          (new MatTableDataSource(this.comments)).paginator = this.paginator;
-        });
-      }
+      this.compositionService.getAllComposition().subscribe(compositions => {
+        for (const composition of compositions) {
+          this.compositionIds.push(composition.id);
+        }
+        if (this.compositionIds.indexOf(Number(data.compositionId)) === -1) {
+          this.router.navigateByUrl('home');
+        } else {
+          this.compositionId = data.compositionId;
+          this.compositionService.compositionId = data.compositionId;
+
+          this.compositionService.getComposition(data.compositionId).subscribe(composition => {
+            this.composition = composition;
+          });
+          this.compositionService.getChapters(data.compositionId).subscribe(chapters => this.chapters = chapters);
+          this.compositionService.getCommentsByCompositionId(data.compositionId).subscribe(comments => {
+            this.comments = comments;
+            this.filterComments = this.comments.slice(0, 4);
+            this.commentsAmount = this.comments.length;
+            (new MatTableDataSource(this.comments)).paginator = this.paginator;
+          });
+        }
+      });
     });
   }
 
@@ -100,8 +97,8 @@ export class CompositionComponent implements OnInit {
     }
   }
 
-  onPaginateChange(data) {
-    this.filterComments = this.comments.slice(data.pageIndex * data.pageSize, data.pageIndex * data.pageSize + data.pageSize);
+  onPaginateChange(page) {
+    this.filterComments = this.comments.slice(page.pageIndex * page.pageSize, page.pageIndex * page.pageSize + page.pageSize);
   }
 
   openCommentArea() {
@@ -121,9 +118,22 @@ export class CompositionComponent implements OnInit {
         this.compositionService.addComment(this.addCommentText, this.composition).subscribe(() => {
           (document.getElementById('add-comment') as HTMLElement).hidden = true;
           this.addCommentText = '';
-          this.ngOnInit();
         });
       }
     }
+  }
+
+  exportPdf() {
+    this.compositionService.exportPdf(this.compositionId).subscribe((file: Blob) => {
+      const blob = new Blob([file], {type: 'application/pdf'});
+      if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveOrOpenBlob(blob);
+      }
+      const data1 = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = data1;
+      link.download = 'composition.pdf';
+      link.dispatchEvent(new MouseEvent('click'));
+    });
   }
 }

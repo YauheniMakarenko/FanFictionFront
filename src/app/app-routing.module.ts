@@ -11,11 +11,15 @@ import {ChapterComponent} from './composition/chapter/chapter.component';
 import {ReadingModeComponent} from './composition/reading-mode/reading-mode.component';
 import {EditModeComponent} from './composition/chapter/edit-mode/edit-mode.component';
 import {CompositionComponent} from './composition/composition.component';
+import {GoogleAuthComponent} from './google-auth/google-auth.component';
+import {VkAuthComponent} from './vk-auth/vk-auth.component';
 
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'google/auth', component: GoogleAuthComponent},
+  {path: 'vk/auth', component: VkAuthComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile/:userId', component: ProfileComponent},
   {path: 'admin', component: BoardAdminComponent},
