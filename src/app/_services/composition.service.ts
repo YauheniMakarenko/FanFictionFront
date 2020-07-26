@@ -44,6 +44,9 @@ export class CompositionService {
   }
 
   saveChapter(chapter): Observable<any> {
+    if (chapter.chaptername === undefined || !chapter.chaptername.trim()){
+      return of([]);
+    }
     return this.http.post(API_URL + 'savechapter', {
       compositionId: chapter.compositionId,
       chaptername: chapter.chaptername,

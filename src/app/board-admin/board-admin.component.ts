@@ -9,7 +9,7 @@ import {MatSort} from '@angular/material/sort';
 class User {
   username: string;
   email: string;
-  role: string;
+  roles: string;
 }
 
 @Component({
@@ -22,7 +22,7 @@ class User {
 export class BoardAdminComponent implements OnInit {
 
   users: any;
-  displayedColumns: string[] = ['settings', 'username', 'email', 'role'];
+  displayedColumns: string[] = ['settings', 'username', 'email', 'roles'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,16 +37,12 @@ export class BoardAdminComponent implements OnInit {
     } else {
       this.userService.getAllUsers().subscribe(dataUsers => {
         this.users = dataUsers;
-        for (const user of this.users) {
-          user.role = this.users[this.users.indexOf(user)].roles[0].name;
-        }
-
         this.dataSource = new MatTableDataSource(this.users);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.dataSource.filterPredicate = (data: User, filter: string): boolean => {
           return data.username.toLowerCase().includes(filter) || data.email.toLowerCase().includes(filter) ||
-            data.role.toLowerCase().includes(filter);
+            data.roles.toLowerCase().includes(filter);
         };
       });
     }

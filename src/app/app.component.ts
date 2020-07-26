@@ -5,8 +5,7 @@ import {CompositionService} from './_services/composition.service';
 import {MatAutocomplete} from '@angular/material/autocomplete';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../environments/environment';
-import {ColorSchemeService} from "./_services/color-scheme.service";
-import {OverlayContainer} from "@angular/cdk/overlay";
+import {ColorSchemeService} from './_services/color-scheme.service';
 
 @Component({
   selector: 'app-root',

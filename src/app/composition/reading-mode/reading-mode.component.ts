@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, DoCheck, OnInit, Pipe, PipeTransform} from '@angular/core';
 import {Chapter, CompositionService} from '../../_services/composition.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {TokenStorageService} from '../../_services/token-storage.service';
 
