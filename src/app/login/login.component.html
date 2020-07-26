@@ -19,7 +19,7 @@
       </button>
     </div>
 
-    <form *ngIf="!isLoggedIn" name="form" #f="ngForm" novalidate>
+    <form name="form"  #f="ngForm" novalidate (ngSubmit)="f.form.valid && onSubmit()">
       <div class="form-group">
         <mat-form-field class="full-width">
           <mat-label>{{"Login.Username" | translate}}</mat-label>
@@ -33,12 +33,9 @@
       <div class="form-group">
         <mat-form-field class="full-width">
           <mat-label>{{"Login.Password" | translate}}</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="form.password" required
+          <input matInput type="password" name="password" [(ngModel)]="form.password" required
                  minlength="6"
                  #password="ngModel"/>
-          <button mat-icon-button matSuffix (click)="hide = !hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
         </mat-form-field>
         <div class="alert mat-error" role="alert" *ngIf="f.submitted && password.invalid">
           <div *ngIf="password.errors.required">{{"Login.Password is required" | translate}}</div>
@@ -48,8 +45,7 @@
         </div>
       </div>
       <div class="form-group">
-        <button mat-raised-button color="primary" class="btn btn-block"
-                (click)="f.form.valid && onSubmit()">{{"Login.Login" | translate}}</button>
+        <button mat-raised-button color="primary" class="btn btn-block">{{"Login.Login" | translate}}</button>
       </div>
       <div class="form-group">
         <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
