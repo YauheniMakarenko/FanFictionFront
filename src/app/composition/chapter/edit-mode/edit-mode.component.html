@@ -5,7 +5,8 @@
              (change)="loadImage(file.files)">
       <mat-icon class="hidden-icon-edit" aria-hidden="false" (click)="callLoadImage()">add_photo_alternate</mat-icon>
       <div class="img_container container-img">
-        <img [src]="this.compositionService.imgUrl" height="200" *ngIf="this.compositionService.imgUrl" id="img">
+        <img [src]="this.compositionService.imgUrl" height="200" width="auto" *ngIf="this.compositionService.imgUrl"
+             id="img">
         <div class="overlay">
           <mat-icon aria-hidden="false" (click)="openBottomSheet()" class="icon">edit</mat-icon>
         </div>
@@ -17,7 +18,6 @@
       <input matInput name="chaptername" [(ngModel)]="title" id="chapterName"
              placeholder="{{'Chapter.Chapter title' | translate}}">
     </mat-form-field>
-    <br>
 
     <mat-form-field class="full_width">
       <textarea matInput name="text" id="textAreaChapterEdit" value="{{text}}"></textarea>
